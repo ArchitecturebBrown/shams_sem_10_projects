@@ -1,0 +1,30 @@
+[tasks]
+bmc
+cover
+prove
+
+
+[options]
+bmc: mode bmc
+cover: mode cover
+prove: mode prove
+depth 1000
+
+[engines]
+smtbmc
+
+[script]
+read -formal sync_2ff.v
+read -formal wr_ctrl.v
+read -formal rd_ctrl.v
+read -formal fifo_mem.v
+# Read top module last
+read -formal -sv async_fifo.v
+prep -top async_fifo
+
+[files]
+sync_2ff.v
+wr_ctrl.v
+rd_ctrl.v
+fifo_mem.v
+async_fifo.v
