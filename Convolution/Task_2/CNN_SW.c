@@ -418,7 +418,7 @@ int main(void)
     //load_demo_input();
     int8_t input_intermediate [49][10];
 
-    quantize_input(input_stop2, input_intermediate);
+    quantize_input(input_up, input_intermediate);
     memcpy(input_x, input_intermediate, sizeof(input_x));
 
     // ---------- Measure latency ----------
